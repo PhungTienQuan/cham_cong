@@ -15,7 +15,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" href="icon-192.png">
 <style>
-:root{--bg:#f4f6fb;--ink:#0f172a;--mute:#8492a6;--line:#e3e8f2;--card:#fff;--navy:#0f1729;--navy2:#1b2540;--green:#10b981;--green-d:#059669;--green-l:#34d399;--red:#ef4444}
+:root{--bg:#f4f6fb;--ink:#0f172a;--mute:#8492a6;--line:#e3e8f2;--card:#fff;--navy:#0f1729;--navy2:#1b2540;--green:#10b981;--green-d:#059669;--green-l:#34d399;--red:#ef4444;--amber:#b45309}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:16px/1.35 -apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;overscroll-behavior:none;touch-action:manipulation;-webkit-text-size-adjust:100%}
 body{position:fixed;inset:0;-webkit-user-select:none;user-select:none}
@@ -33,11 +33,11 @@ main{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:6px calc(en
 /* Thẻ bấm giờ */
 .tcard{background:radial-gradient(120% 90% at 50% 0%,#17223f 0%,var(--navy) 70%);color:#fff;border-radius:30px;padding:18px;box-shadow:0 16px 40px rgba(15,23,41,.25)}
 .t-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.st{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:1.5px;font-size:15px;color:#c3cbe0}
+.st{display:flex;align-items:center;gap:8px;font-weight:800;letter-spacing:1px;font-size:14px;color:#c3cbe0;white-space:nowrap}
 .st i{width:16px;height:16px;border-radius:50%;background:#64748b;display:block}
 .st.run{color:#6ee7b7}.st.run i{background:var(--green);box-shadow:0 0 0 0 rgba(16,185,129,.6);animation:pulse 1.6s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
-select{appearance:none;-webkit-appearance:none;background:var(--navy2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c3cbe0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6-6 6 6M6 15l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;color:#fff;border:1.5px solid #2b3858;border-radius:16px;min-height:46px;padding:0 36px 0 14px;font-size:16px;font-weight:700;max-width:60%}
+select{appearance:none;-webkit-appearance:none;background:var(--navy2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23c3cbe0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6-6 6 6M6 15l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;color:#fff;border:1.5px solid #2b3858;border-radius:16px;min-height:46px;padding:0 34px 0 12px;font-size:15px;font-weight:700;max-width:56%}
 select:disabled{opacity:.5}
 .t-big{text-align:center;font-size:clamp(50px,17vw,74px);font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-1px;margin:14px 0 4px;line-height:1.05}
 .t-min{text-align:center;color:#94a3c4}.t-min b{color:#fff}
@@ -49,11 +49,11 @@ select:disabled{opacity:.5}
 .go{width:100%;min-height:62px;margin-top:14px;border-radius:32px;background:var(--green);color:#fff;font-size:20px;font-weight:800;box-shadow:0 10px 28px rgba(16,185,129,.35)}
 .go.stop{background:var(--red);box-shadow:0 10px 28px rgba(239,68,68,.35)}
 .go:active{transform:scale(.98)}
-.t-test{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px;padding-top:14px;border-top:1.5px solid #1f2a44;color:#7f8fb3;font-size:14px}
-.t-test button{background:var(--navy2);color:var(--green-l);font-weight:700;padding:10px 14px;border-radius:14px;white-space:nowrap}
-.t-test button:disabled{opacity:.35}
-.tt-btns{display:flex;gap:8px}
+.t-test{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px;padding-top:14px;border-top:1.5px solid #1f2a44}
+.t-test button{background:var(--navy2);color:var(--green-l);font-weight:800;font-size:17px;padding:14px 0;border-radius:16px}
 .t-test button[data-m="-5"]{color:#fca5a5}
+.t-test button:disabled{opacity:.35}
+.t-test button:not(:disabled):active{transform:scale(.97)}
 
 /* Thống kê */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
@@ -62,6 +62,7 @@ select:disabled{opacity:.5}
 .stat b{display:block;font-size:26px;margin:6px 0 4px;font-variant-numeric:tabular-nums;white-space:nowrap}
 .stat .g{color:var(--green-d)}
 .stat span{color:#64748b;font-size:14px}
+.stat em{display:block;font-style:normal;color:var(--amber);font-size:13px;font-weight:700;margin-top:2px}
 
 .sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:22px 2px 12px}
 .sec-h h3{margin:0;font-size:15px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
@@ -72,14 +73,15 @@ select:disabled{opacity:.5}
 .day{background:var(--card);border:1.5px solid var(--line);border-radius:24px;overflow:hidden;margin-bottom:14px}
 .d-head{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;background:var(--navy);color:#fff;padding:14px 16px}
 .d-head b{display:block;font-size:17px}.d-head small{color:#9fb0d3}.d-head small u{text-decoration:none;color:var(--green-l);font-weight:700}
-.d-tot{text-align:right}
-.dday{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:#fca5a5;background:rgba(239,68,68,.15);border-radius:10px;padding:6px 10px}.d-tot small{display:block;letter-spacing:1px;font-size:11px}
+.d-head small i{font-style:normal;color:#fcd34d}
+.d-tot{text-align:right}.d-tot small{display:block;letter-spacing:1px;font-size:11px}
 .d-tot b{color:var(--green-l);font-size:24px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dday{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:#fca5a5;background:rgba(239,68,68,.15);border-radius:10px;padding:6px 10px}
 .cols,.srow{display:grid;grid-template-columns:minmax(0,1fr) auto auto 42px;gap:10px;align-items:start;padding:12px 16px}
 .cols{background:#f7f9fd;color:var(--mute);font-weight:800;font-size:12px;letter-spacing:.8px;border-bottom:1.5px solid var(--line);padding-top:10px;padding-bottom:10px}
 .srow{border-bottom:1.5px solid #eef1f7}.srow:last-child{border-bottom:0}
-.s-n b{font-size:18px}.s-n div{color:var(--mute);font-size:15px}.s-n .nt{color:#475569;font-size:14px;word-break:break-word}
-.s-n .tg{display:inline-block;margin-top:3px;font-size:12px;font-weight:700;color:var(--green-d);background:#e7f8f1;border-radius:8px;padding:1px 7px}
+.s-n b{font-size:19px}.s-n div{color:var(--mute);font-size:15px}.s-n .nt{color:#475569;font-size:14px;word-break:break-word}
+.s-n .tg{display:inline-block;margin-top:4px;font-size:12px;font-weight:700;color:var(--amber);background:#fef3c7;border-radius:8px;padding:2px 8px}
 .s-d{text-align:right}.s-d b{display:block;font-size:17px}.s-d span{color:var(--mute);font-size:13px;white-space:nowrap}
 .s-m{font-weight:800;color:var(--green-d);font-size:17px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .del{width:42px;height:42px;border-radius:14px;background:#fdecee;color:var(--red);font-size:20px;font-weight:700}
@@ -96,14 +98,16 @@ nav button.on{color:var(--green-d)}
 .chip{padding:0 16px;min-height:42px;border-radius:99px;background:#fff;border:1.5px solid var(--line);font-weight:700;color:#475569}
 .chip.sel{background:var(--ink);border-color:var(--ink);color:#fff}
 .rsum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
-.rsum .stat:first-child{grid-column:1/-1;background:var(--navy);border-color:var(--navy);color:#fff}
-.rsum .stat:first-child small{color:#9fb0d3}.rsum .stat:first-child b{font-size:34px;color:var(--green-l)}
+.rsum .stat.big{grid-column:1/-1;background:var(--navy);border-color:var(--navy);color:#fff}
+.rsum .stat.big small{color:#9fb0d3}.rsum .stat.big b{font-size:34px;color:var(--green-l)}
+.rsum .stat b.s{font-size:20px}
 .rtable{background:#fff;border:1.5px solid var(--line);border-radius:24px;overflow:hidden}
-.rrow{display:grid;grid-template-columns:70px 1fr auto;gap:10px;padding:12px 16px;border-bottom:1.5px solid #eef1f7;align-items:center}
+.rrow{display:grid;grid-template-columns:62px 1fr auto;gap:10px;padding:12px 16px;border-bottom:1.5px solid #eef1f7;align-items:center}
 .rrow:last-child{border-bottom:0}.rrow small{color:var(--mute);display:block}
 .rrow b.m{color:var(--green-d);white-space:nowrap}
 .btn{width:100%;min-height:54px;border-radius:18px;font-weight:800;font-size:17px;margin-top:12px}
 .btn.green{background:var(--green-d);color:#fff}.btn.gray{background:#eef1f7;color:#334155}.btn.red{background:#fdecee;color:var(--red)}
+.btn.danger{background:var(--red);color:#fff}
 
 /* Bottom sheet */
 .ov{position:fixed;inset:0;background:rgba(15,23,42,.45);opacity:0;pointer-events:none;transition:opacity .25s;z-index:20}
@@ -114,14 +118,15 @@ nav button.on{color:var(--green-d)}
 .sh-head h2{margin:0;font-size:22px;line-height:1.2}
 .x{width:46px;height:46px;border-radius:50%;background:#eef1f7;font-size:18px;flex:none}
 .box{background:#f7f9fd;border:1.5px solid var(--line);border-radius:22px;padding:6px 16px 10px}
+.box.bonus{margin-top:12px;border-color:#fde68a;background:#fffbeb}
 .frow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0}
 .frow>label{color:#64748b;font-weight:700;flex:1}
 .frow input,.frow select,.txt{min-height:46px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-size:16px;padding:0 12px;outline:none;-webkit-appearance:none;appearance:none}
 .frow input{width:150px;text-align:right;font-weight:700}
-.frow select{background:#fff;color:var(--ink);border-color:var(--line);max-width:190px;padding:0 12px;background-image:none;font-weight:700}
+.frow select{background:#fff;color:var(--ink);border-color:var(--line);max-width:200px;padding:0 12px;background-image:none;font-weight:700}
 .frow input:focus,.txt:focus,.frow select:focus{border-color:var(--green)}
 .withu{display:flex;align-items:center;gap:8px}.withu input{width:96px;border-color:var(--green);color:var(--green-d);font-size:20px}
-.frow>b{font-size:16px}
+.frow>b{font-size:16px;text-align:right}
 .formula{border-top:1.5px solid var(--line);margin-top:6px;padding-top:12px}
 .formula small{color:var(--mute);display:block;margin-bottom:4px}
 .formula code{font:600 14px/1.45 ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-word;color:#334155}
@@ -132,17 +137,22 @@ nav button.on{color:var(--green-d)}
 .foot2{position:sticky;bottom:0;background:#fff;display:grid;grid-template-columns:1fr 1.4fr;gap:12px;padding:12px 0 calc(env(safe-area-inset-bottom) + 12px);margin-top:14px}
 .foot2 .btn{margin:0}
 .spacer{height:calc(env(safe-area-inset-bottom) + 16px)}
-.erow{display:grid;grid-template-columns:1fr 84px 46px;gap:8px;margin-bottom:8px;align-items:center}
-.erow input{margin:0;width:100%}
-.hint{color:var(--mute);font-size:13px;margin:6px 0 0}
-.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 110px);transform:translate(-50%,20px);background:#0f172a;color:#fff;padding:10px 16px;border-radius:99px;font-weight:600;opacity:0;transition:.25s;z-index:30;pointer-events:none;max-width:90%;text-align:center}
-.toast.show{opacity:1;transform:translate(-50%,0)}
+.erow{display:grid;grid-template-columns:1fr 112px 46px;gap:8px;margin-bottom:8px;align-items:center}
+.erow input{margin:0;width:100%;min-height:46px;border-radius:14px;border:1.5px solid var(--line);background:#fff;color:var(--ink);font-size:16px;padding:0 12px;outline:none;-webkit-appearance:none}
+.erow input:focus{border-color:var(--green)}
+.hint{color:var(--mute);font-size:13px;margin:6px 0 4px}
+.bshow{text-align:right;font-weight:800;color:var(--amber);font-size:20px;min-height:0;padding:0 2px}
+.bshow:empty{display:none}
+
+/* Hộp thoại xác nhận */
 .dlg{position:fixed;inset:0;background:rgba(15,23,42,.5);display:grid;place-items:center;z-index:40;padding:24px}
 .dlg-box{background:#fff;border-radius:24px;padding:22px;width:100%;max-width:360px;box-shadow:0 20px 50px rgba(15,23,42,.3)}
 .dlg-box p{margin:0 0 18px;font-size:17px;font-weight:600;line-height:1.4}
 .dlg-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .dlg-btns .btn{margin:0;min-height:50px}
-.btn.danger{background:var(--red);color:#fff}
+
+.toast{position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 110px);transform:translate(-50%,20px);background:#0f172a;color:#fff;padding:10px 16px;border-radius:99px;font-weight:600;opacity:0;transition:.25s;z-index:50;pointer-events:none;max-width:90%;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
 </style>
 </head>
 <body>
@@ -155,7 +165,7 @@ nav button.on{color:var(--green-d)}
     <section id="tab-home">
       <div class="tcard" id="tcard"></div>
       <div class="stats" id="stats"></div>
-      <div class="sec-h"><div><h3>Bảng ngày có nhiều ca</h3><p>Tự động gộp các ca trong cùng 1 ngày</p></div><button class="pill" data-act="manual">+ Thêm ca thủ công</button></div>
+      <div class="sec-h"><div><h3>Bảng ngày có nhiều ca</h3><p>Mỗi ngày tính từ 6h sáng đến 6h sáng hôm sau</p></div><button class="pill" data-act="manual">+ Thêm ca thủ công</button></div>
       <div id="days"></div>
     </section>
     <section id="tab-report" hidden></section>
@@ -172,9 +182,18 @@ nav button.on{color:var(--green-d)}
 
 <script>
 (function(){
-const KEY='cham_cong_v1';
-const def=()=>({name:'',rate:160000,mults:[{id:1,name:'Thường',f:1},{id:2,name:'Tăng ca',f:1.5},{id:3,name:'Ngày lễ',f:2}],curMult:1,note:'',shifts:[],timer:null,nextId:10});
-function load(){try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.mults)return Object.assign(def(),s)}catch(e){}return def()}
+const KEY='cham_cong_v2';
+const DAY_START=6; // ngày làm việc tính từ 6h sáng đến 6h sáng hôm sau
+const def=()=>({name:'',codes:[
+  {id:1,name:'Bl',rate:170000},{id:2,name:'Dmt',rate:170000},{id:3,name:'X6',rate:170000},
+  {id:4,name:'Nq',rate:160000},{id:5,name:'Ch',rate:170000},{id:6,name:'Luvk',rate:170000},{id:7,name:'Pra',rate:170000}],
+  cur:1,note:'',shifts:[],timer:null,nextId:100});
+function load(){
+  try{const s=JSON.parse(localStorage.getItem(KEY));
+    if(s&&Array.isArray(s.codes)&&s.codes.length){const d=Object.assign(def(),s);if(!d.codes.some(c=>c.id==d.cur))d.cur=d.codes[0].id;return d}
+  }catch(e){}
+  return def();
+}
 let S=load();
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
 
@@ -188,27 +207,27 @@ const hm=t=>{const d=new Date(t);return pad(d.getHours())+':'+pad(d.getMinutes()
 const ymd=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
 const dmy=k=>k.slice(8,10)+'/'+k.slice(5,7)+'/'+k.slice(0,4);
 const WD=['Chủ Nhật','Thứ Hai','Thứ Ba','Thứ Tư','Thứ Năm','Thứ Sáu','Thứ Bảy'];
-const dayTitle=k=>WD[new Date(k+'T00:00:00').getDay()]+', '+dmy(k)+(k===ymd(new Date())?' (Hôm nay)':'');
-const fmtF=f=>f%1===0?Number(f).toFixed(1):String(f);
-const mLabel=m=>'x'+fmtF(m.f)+' '+m.name;
-const multById=id=>S.mults.find(m=>m.id==id)||S.mults[0]||{id:0,name:'Thường',f:1};
+const wdKey=ts=>ymd(new Date(ts-DAY_START*3600000)); // ngày làm việc của một thời điểm
+const dayTitle=k=>WD[new Date(k+'T12:00:00').getDay()]+', '+dmy(k)+(k===wdKey(Date.now())?' (Hôm nay)':'');
+const rateTxt=r=>(r>=1000&&r%1000===0)?(r/1000)+'k':money(r);
+const cLabel=c=>c.name+' · '+rateTxt(c.rate)+'/h';
+const codeById=id=>S.codes.find(c=>c.id==id)||S.codes[0];
 const mins=sec=>sec>0?Math.max(1,Math.round(sec/60)):0;
-const calc=(min,rate,f,allow)=>Math.round(min*rate/60*f)+(allow||0);
-const digits=v=>parseInt(String(v).replace(/\D/g,''))||0;
+const hourPay=(min,rate)=>Math.round(min*rate/60);
 let toastT;
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>t.classList.remove('show'),2000)}
 
 /* ---------- Thẻ bấm giờ ---------- */
 function renderTimer(){
   const T=S.timer,run=!!T;
-  const opts=run?`<option>${esc(T.label)}</option>`:S.mults.map(m=>`<option value="${m.id}" ${S.curMult==m.id?'selected':''}>${esc(mLabel(m))}</option>`).join('');
-  $('#tcard').innerHTML=`<div class="t-top"><div class="st ${run?'run':''}"><i></i><span>${run?'ĐANG TÍNH GIỜ...':'SẴN SÀNG'}</span></div><select id="mult" ${run?'disabled':''}>${opts}</select></div>
+  const opts=run?`<option>${esc(T.label)}</option>`:S.codes.map(c=>`<option value="${c.id}" ${S.cur==c.id?'selected':''}>${esc(cLabel(c))}</option>`).join('');
+  $('#tcard').innerHTML=`<div class="t-top"><div class="st ${run?'run':''}"><i></i><span>${run?'ĐANG TÍNH GIỜ':'SẴN SÀNG'}</span></div><select id="code" ${run?'disabled':''}>${opts}</select></div>
   <div class="t-big" id="tt">00:00:00</div>
   <div class="t-min">Đã chạy: <b id="tmin">0 phút (0.00p)</b></div>
   <div class="t-money"><span>Tạm tính: <b id="tmoney">0 đ</b></span></div>
   <input id="note" class="note" placeholder="Ghi chú ca làm việc (không bắt buộc)" value="${esc(S.note)}">
   <button class="go ${run?'stop':''}" data-act="${run?'end':'start'}">${run?'■ Kết thúc &amp; lưu ca':'▶ Bắt đầu làm việc'}</button>
-  <div class="t-test"><span>Thử nhanh tính tiền:</span><div class="tt-btns"><button data-act="test" data-m="-5" ${run?'':'disabled'}>− 5 phút</button><button data-act="test" data-m="5" ${run?'':'disabled'}>+ 5 phút</button></div></div>`;
+  <div class="t-test"><button data-act="test" data-m="-5" ${run?'':'disabled'}>− 5 phút</button><button data-act="test" data-m="5" ${run?'':'disabled'}>+ 5 phút</button></div>`;
   tick();
 }
 const elapsed=()=>S.timer?(Date.now()-S.timer.start+(S.timer.offset||0))/1000:0;
@@ -217,31 +236,31 @@ function tick(){
   const sec=elapsed(),T=S.timer;
   $('#tt').textContent=hms(sec);
   $('#tmin').textContent=Math.floor(sec/60)+' phút ('+(sec/60).toFixed(2)+'p)';
-  $('#tmoney').textContent=T?money(sec/60*S.rate/60*T.f):'0 đ';
+  $('#tmoney').textContent=T?money(sec/60*T.rate/60):'0 đ';
 }
 
-/* ---------- Nhóm theo ngày ---------- */
+/* ---------- Nhóm theo ngày làm việc (6h sáng → 6h sáng) ---------- */
 function groupDays(list){
   const g={};
-  list.forEach(s=>{(g[s.date]=g[s.date]||[]).push(s)});
+  list.forEach(s=>{const k=wdKey(s.start);(g[k]=g[k]||[]).push(s)});
   return Object.keys(g).sort().reverse().map(k=>{
     const sh=g[k].slice().sort((a,b)=>a.id-b.id);
-    return {date:k,shifts:sh,min:sh.reduce((a,s)=>a+s.min,0),amount:sh.reduce((a,s)=>a+s.amount,0)};
+    return {date:k,shifts:sh,min:sh.reduce((a,s)=>a+s.min,0),hour:sh.reduce((a,s)=>a+s.hour,0),bonus:sh.reduce((a,s)=>a+(s.bonus||0),0)};
   });
 }
+const sumOf=l=>({m:l.reduce((a,s)=>a+s.min,0),h:l.reduce((a,s)=>a+s.hour,0),b:l.reduce((a,s)=>a+(s.bonus||0),0),n:l.length});
 function renderLists(){
   $('#who').textContent=S.name?S.name:'Bấm giờ & tính lương theo giờ';
-  const today=ymd(new Date());
-  const td=S.shifts.filter(s=>s.date===today);
-  const sum=l=>({m:l.reduce((a,s)=>a+s.min,0),a:l.reduce((a,s)=>a+s.amount,0),n:l.length});
-  const A=sum(td),B=sum(S.shifts);
-  $('#stats').innerHTML=`<div class="stat"><small>HÔM NAY</small><b class="g">${money(A.a)}</b><span>${hmText(A.m)} (${A.n} ca)</span></div>
-  <div class="stat"><small>TỔNG TẤT CẢ</small><b>${money(B.a)}</b><span>${hmText(B.m)} (${B.n} ca)</span></div>`;
+  const todayK=wdKey(Date.now()),monthK=todayK.slice(0,7);
+  const A=sumOf(S.shifts.filter(s=>wdKey(s.start)===todayK));
+  const B=sumOf(S.shifts.filter(s=>wdKey(s.start).slice(0,7)===monthK));
+  $('#stats').innerHTML=`<div class="stat"><small>HÔM NAY</small><b class="g">${money(A.h)}</b><span>${hmText(A.m)} (${A.n} ca)</span></div>
+  <div class="stat"><small>THÁNG NÀY</small><b>${money(B.h+B.b)}</b><span>${hmText(B.m)} (${B.n} ca)</span>${B.b?`<em>Gồm thưởng ${money(B.b)}</em>`:''}</div>`;
   const days=groupDays(S.shifts);
-  $('#days').innerHTML=days.length?days.map(d=>`<div class="day"><div class="d-head"><div><b>${dayTitle(d.date)}</b><small><u>${d.shifts.length} ca</u> · Tổng: ${hmText(d.min)} (${d.min}p)</small></div><div class="d-tot"><small>TỔNG NGÀY</small><b>${money(d.amount)}</b><button class="dday" data-act="delday" data-d="${d.date}">Xóa ngày</button></div></div>
-  <div class="cols"><span>CA / GIỜ</span><span>THỜI LƯỢNG</span><span>TIỀN LƯƠNG</span><span>XÓA</span></div>
-  ${d.shifts.map((s,i)=>({s,i})).reverse().map(({s,i})=>`<div class="srow"><div class="s-n"><b>Ca ${i+1}</b><div>${hm(s.start)} - ${hm(s.end)}</div>${s.note?`<div class="nt">${esc(s.note)}</div>`:''}${(s.f!==1||s.allow)?`<span class="tg">${esc(s.label)}${s.allow?' · +'+money(s.allow):''}</span>`:''}</div>
-  <div class="s-d"><b>${s.min} phút</b><span>${hmText(s.min)}</span></div><div class="s-m">${money(s.amount)}</div><button class="del" data-act="del" data-id="${s.id}" aria-label="Xóa">×</button></div>`).join('')}</div>`).join(''):
+  $('#days').innerHTML=days.length?days.map(d=>`<div class="day"><div class="d-head"><div><b>${dayTitle(d.date)}</b><small><u>${d.shifts.length} ca</u> · Tổng: ${hmText(d.min)} (${d.min}p)${d.bonus?` · <i>Thưởng: ${money(d.bonus)} (tính vào tháng)</i>`:''}</small></div><div class="d-tot"><small>TỔNG NGÀY</small><b>${money(d.hour)}</b><button class="dday" data-act="delday" data-d="${d.date}">Xóa ngày</button></div></div>
+  <div class="cols"><span>MÃ / GIỜ</span><span>THỜI LƯỢNG</span><span>TIỀN GIỜ</span><span>XÓA</span></div>
+  ${d.shifts.slice().reverse().map(s=>`<div class="srow"><div class="s-n"><b>${esc(s.code)}</b><div>${hm(s.start)} - ${hm(s.end)}</div>${s.note?`<div class="nt">${esc(s.note)}</div>`:''}${s.bonus?`<span class="tg">Thưởng +${money(s.bonus)}</span>`:''}</div>
+  <div class="s-d"><b>${s.min} phút</b><span>${hmText(s.min)}</span></div><div class="s-m">${money(s.hour)}</div><button class="del" data-act="del" data-id="${s.id}" aria-label="Xóa">×</button></div>`).join('')}</div>`).join(''):
   `<div class="empty">Chưa có ca làm việc nào.<br>Bấm <b>Bắt đầu làm việc</b> để chấm công.</div>`;
 }
 
@@ -251,97 +270,105 @@ function show(html,keep){const p=$('#panel');const st=p.scrollTop;p.innerHTML=ht
 function openSheet(){$('#ov').classList.add('open');$('#panel').classList.add('open')}
 function closeSheet(){$('#ov').classList.remove('open');$('#panel').classList.remove('open');V={mode:null};if(document.activeElement)document.activeElement.blur()}
 const head=t=>`<div class="sh-head"><h2>${t}</h2><button class="x" data-act="close" aria-label="Đóng">✕</button></div>`;
-const formBottom=`<div class="formula"><small>Chi tiết công thức:</small><code id="f-formula"></code></div><div class="ttlrow"><span>THÀNH TIỀN CA NÀY:</span><b id="f-total"></b></div>`;
+const formBottom=`<div class="formula"><small>Chi tiết công thức:</small><code id="f-formula"></code></div><div class="ttlrow"><span>TIỀN GIỜ CA NÀY:</span><b id="f-total"></b></div>`;
+const bonusBox=(id,val)=>`<div class="box bonus"><div class="frow"><label>Thưởng thêm (nghìn đ):</label><input id="${id}" inputmode="numeric" pattern="[0-9]*" placeholder="0" value="${val?val/1000:''}"></div><div class="bshow" id="b-show">${val?'= '+money(val):''}</div><p class="hint">Gõ theo nghìn: 50 = 50.000 đ, 100 = 100.000 đ. Thưởng tính riêng, không nằm trong tổng ngày, chỉ cộng vào tổng tháng.</p></div>`;
+const showB=v=>{const e=$('#b-show');if(e)e.textContent=v?'= '+money(v):''};
 
+const mStart=()=>new Date(M.date+'T'+pad(Math.floor(M.fromMin/60))+':'+pad(M.fromMin%60)+':00').getTime();
 function formVals(){
-  if(V.mode==='end'){return {min:E.min,f:S.timer?S.timer.f:1,allow:E.allow}}
-  const d=((M.toMin-M.fromMin)+1440)%1440;
-  return {min:d,f:multById(M.multId).f,allow:M.allow};
+  if(V.mode==='end')return {min:E.min,rate:E.rate,start:E.start};
+  const d=((M.toMin-M.fromMin)+1440)%1440,c=codeById(M.codeId);
+  return {min:d,rate:c.rate,start:mStart()};
 }
 function updForm(){
-  const v=formVals();
-  const total=calc(v.min,S.rate,v.f,v.allow);
+  const v=formVals(),h=hourPay(v.min,v.rate);
   if($('#f-hm'))$('#f-hm').textContent=hmText(v.min);
-  $('#f-formula').textContent=v.min+' phút × ('+money(S.rate)+' / 60) × '+v.f+(v.allow?' + '+money(v.allow):'')+' = '+money(total);
-  $('#f-total').textContent=money(total);
+  if($('#f-wd'))$('#f-wd').textContent=dmy(wdKey(v.start));
+  if($('#f-rate'))$('#f-rate').textContent=money(v.rate)+'/giờ';
+  $('#f-formula').textContent=v.min+' phút × ('+money(v.rate)+' / 60) = '+money(h);
+  $('#f-total').textContent=money(h);
 }
 
 function endHTML(){
   return head('Kết thúc &amp; Lưu ca làm việc')+`<div class="box">
-  <div class="frow"><label>Ngày làm việc:</label><input type="date" id="e-date" value="${E.date}"></div>
+  <div class="frow"><label>Mã:</label><b>${esc(E.code)} · <span id="f-rate"></span></b></div>
+  <div class="frow"><label>Tính vào ngày:</label><b id="f-wd"></b></div>
   <div class="frow"><label>Số phút làm việc:</label><div class="withu"><input id="e-min" inputmode="numeric" pattern="[0-9]*" value="${E.min}"><span>phút</span></div></div>
   <div class="frow"><label>Quy đổi giờ &amp; phút:</label><b id="f-hm"></b></div>
-  <div class="frow"><label>Phụ cấp / Thưởng thêm (đ):</label><input id="e-allow" inputmode="numeric" pattern="[0-9]*" value="${E.allow||0}"></div>
   ${formBottom}</div>
+  ${bonusBox('e-bonus',E.bonus)}
   <label class="lbl">Ghi chú ca làm việc:</label><input id="e-note" class="txt" value="${esc(E.note)}" placeholder="Không bắt buộc">
   <div class="foot2"><button class="btn gray" data-act="close">Quay lại</button><button class="btn green" data-act="save-end">Lưu vào bảng ngày</button></div>`;
 }
 function manualHTML(){
-  const opts=S.mults.map(m=>`<option value="${m.id}" ${M.multId==m.id?'selected':''}>${esc(mLabel(m))}</option>`).join('');
+  const opts=S.codes.map(c=>`<option value="${c.id}" ${M.codeId==c.id?'selected':''}>${esc(cLabel(c))}</option>`).join('');
   const tv=m=>pad(Math.floor(m/60))+':'+pad(m%60);
   return head('Thêm ca thủ công')+`<div class="box">
-  <div class="frow"><label>Ngày làm việc:</label><input type="date" id="m-date" value="${M.date}"></div>
+  <div class="frow"><label>Mã:</label><select id="m-code">${opts}</select></div>
+  <div class="frow"><label>Ngày:</label><input type="date" id="m-date" value="${M.date}"></div>
   <div class="frow"><label>Từ giờ:</label><input type="time" id="m-from" value="${tv(M.fromMin)}"></div>
   <div class="frow"><label>Đến giờ:</label><input type="time" id="m-to" value="${tv(M.toMin)}"></div>
-  <div class="frow"><label>Hệ số:</label><select id="m-mult">${opts}</select></div>
+  <div class="frow"><label>Tính vào ngày:</label><b id="f-wd"></b></div>
   <div class="frow"><label>Quy đổi giờ &amp; phút:</label><b id="f-hm"></b></div>
-  <div class="frow"><label>Phụ cấp / Thưởng thêm (đ):</label><input id="m-allow" inputmode="numeric" pattern="[0-9]*" value="${M.allow||0}"></div>
   ${formBottom}</div>
+  <p class="hint">Giờ từ 0h đến trước 6h sáng được tính vào ngày hôm trước.</p>
+  ${bonusBox('m-bonus',M.bonus)}
   <label class="lbl">Ghi chú ca làm việc:</label><input id="m-note" class="txt" value="${esc(M.note)}" placeholder="Không bắt buộc">
   <div class="foot2"><button class="btn gray" data-act="close">Hủy</button><button class="btn green" data-act="save-manual">Lưu vào bảng ngày</button></div>`;
 }
 
 function settingsHTML(){
-  const rows=S.mults.map(m=>`<div class="erow"><input data-bind="mn:${m.id}" value="${esc(m.name)}" placeholder="Tên hệ số"><input data-bind="mf:${m.id}" inputmode="decimal" value="${m.f}"><button class="x" style="width:46px;height:46px;color:var(--red)" data-act="mdel" data-id="${m.id}" aria-label="Xóa">✕</button></div>`).join('');
+  const rows=S.codes.map(c=>`<div class="erow"><input data-bind="cn:${c.id}" value="${esc(c.name)}" placeholder="Mã"><input data-bind="cr:${c.id}" inputmode="numeric" pattern="[0-9]*" value="${c.rate}"><button class="x" style="color:var(--red)" data-act="cdel" data-id="${c.id}" aria-label="Xóa">✕</button></div>`).join('');
   return head('Cài đặt')+`<label class="lbl" style="margin-top:4px">Tên nhân viên</label><input class="txt" data-bind="name" value="${esc(S.name)}" placeholder="Hiện trên báo cáo">
-  <label class="lbl">Lương mỗi giờ (đ)</label><input class="txt" data-bind="rate" inputmode="numeric" pattern="[0-9]*" value="${S.rate}">
-  <label class="lbl">Hệ số lương (tên · hệ số)</label>${rows}
-  <button class="btn gray" data-act="madd" style="margin-top:4px">+ Thêm hệ số</button>
-  <p class="hint">Công thức: số phút × (lương/giờ ÷ 60) × hệ số + phụ cấp. Đổi lương/giờ chỉ áp dụng cho các ca lưu sau này.</p>
+  <label class="lbl">Mã làm việc &amp; lương mỗi giờ (đ)</label>${rows}
+  <button class="btn gray" data-act="cadd" style="margin-top:4px">+ Thêm mã</button>
+  <p class="hint">Tiền giờ = số phút × (lương/giờ ÷ 60). Mỗi ca lưu lại mức lương lúc đó, đổi lương sau này không làm đổi các ca cũ.</p>
   <button class="btn red" data-act="wipe" style="margin-top:20px">Xóa toàn bộ dữ liệu</button>
   <button class="btn green" data-act="close">Xong</button><div class="spacer"></div>`;
 }
 function bind(el){
   const [a,id]=el.dataset.bind.split(':');let v=el.value;
   if(a==='name')S.name=v;
-  else if(a==='rate'){v=v.replace(/\D/g,'');if(el.value!==v)el.value=v;S.rate=parseInt(v)||0}
-  else if(a==='mn'){const m=S.mults.find(x=>x.id==id);if(m)m.name=v}
-  else if(a==='mf'){const f=parseFloat(String(v).replace(',','.'));const m=S.mults.find(x=>x.id==id);if(m&&f>0)m.f=f}
+  else if(a==='cn'){const c=S.codes.find(x=>x.id==id);if(c)c.name=v}
+  else if(a==='cr'){v=v.replace(/\D/g,'');if(el.value!==v)el.value=v;const c=S.codes.find(x=>x.id==id);if(c)c.rate=parseInt(v)||0}
   save();
 }
 
 /* ---------- Báo cáo ---------- */
 let R={range:'month'};
 function rangeInfo(){
-  const now=new Date(),cur=ymd(now).slice(0,7);
-  const lastD=new Date(now.getFullYear(),now.getMonth()-1,1),last=ymd(lastD).slice(0,7);
-  if(R.range==='month')return {label:'Tháng '+cur.slice(5)+'/'+cur.slice(0,4),key:cur,list:S.shifts.filter(s=>s.date.slice(0,7)===cur)};
-  if(R.range==='last')return {label:'Tháng '+last.slice(5)+'/'+last.slice(0,4),key:last,list:S.shifts.filter(s=>s.date.slice(0,7)===last)};
+  const nowD=new Date(Date.now()-DAY_START*3600000),cur=ymd(nowD).slice(0,7);
+  const last=ymd(new Date(nowD.getFullYear(),nowD.getMonth()-1,1)).slice(0,7);
+  const inM=k=>S.shifts.filter(s=>wdKey(s.start).slice(0,7)===k);
+  if(R.range==='month')return {label:'Tháng '+cur.slice(5)+'/'+cur.slice(0,4),key:cur,list:inM(cur)};
+  if(R.range==='last')return {label:'Tháng '+last.slice(5)+'/'+last.slice(0,4),key:last,list:inM(last)};
   return {label:'Tất cả',key:'tat-ca',list:S.shifts.slice()};
 }
 function renderReport(){
-  const I=rangeInfo(),days=groupDays(I.list);
-  const min=I.list.reduce((a,s)=>a+s.min,0),amt=I.list.reduce((a,s)=>a+s.amount,0);
+  const I=rangeInfo(),days=groupDays(I.list),T=sumOf(I.list);
   const ch=(k,t)=>`<button class="chip ${R.range===k?'sel':''}" data-act="range" data-r="${k}">${t}</button>`;
   $('#tab-report').innerHTML=`<div class="chips">${ch('month','Tháng này')}${ch('last','Tháng trước')}${ch('all','Tất cả')}</div>
-  <div class="rsum"><div class="stat"><small>TỔNG TIỀN LƯƠNG · ${esc(I.label.toUpperCase())}</small><b>${money(amt)}</b></div>
-  <div class="stat"><small>TỔNG GIỜ</small><b style="font-size:20px">${hmText(min)}</b></div>
-  <div class="stat"><small>SỐ CA / SỐ NGÀY</small><b style="font-size:20px">${I.list.length} ca / ${days.length} ngày</b></div></div>
-  ${days.length?`<div class="rtable">${days.map(d=>`<div class="rrow"><b>${d.date.slice(8,10)}/${d.date.slice(5,7)}</b><div>${d.shifts.length} ca<small>${hmText(d.min)}</small></div><b class="m">${money(d.amount)}</b></div>`).join('')}</div>`:'<div class="empty">Chưa có dữ liệu trong khoảng này.</div>'}
+  <div class="rsum"><div class="stat big"><small>TỔNG TIỀN (GỒM THƯỞNG) · ${esc(I.label.toUpperCase())}</small><b>${money(T.h+T.b)}</b></div>
+  <div class="stat"><small>TIỀN GIỜ</small><b class="s">${money(T.h)}</b></div>
+  <div class="stat"><small>THƯỞNG</small><b class="s" style="color:var(--amber)">${money(T.b)}</b></div>
+  <div class="stat"><small>TỔNG GIỜ</small><b class="s">${hmText(T.m)}</b></div>
+  <div class="stat"><small>SỐ CA / SỐ NGÀY</small><b class="s">${T.n} ca / ${days.length} ngày</b></div></div>
+  ${days.length?`<div class="rtable">${days.map(d=>`<div class="rrow"><b>${d.date.slice(8,10)}/${d.date.slice(5,7)}</b><div>${d.shifts.length} ca<small>${hmText(d.min)}${d.bonus?' · thưởng '+money(d.bonus):''}</small></div><b class="m">${money(d.hour)}</b></div>`).join('')}</div>`:'<div class="empty">Chưa có dữ liệu trong khoảng này.</div>'}
   <button class="btn green" data-act="csv">Tải file Excel (CSV)</button>
   <button class="btn gray" data-act="share">Chia sẻ / sao chép báo cáo</button>`;
 }
 function reportText(){
-  const I=rangeInfo(),days=groupDays(I.list).reverse();
-  const min=I.list.reduce((a,s)=>a+s.min,0),amt=I.list.reduce((a,s)=>a+s.amount,0);
-  const L=['BÁO CÁO CHẤM CÔNG'+(S.name?' - '+S.name:''),'Kỳ: '+I.label,'Tổng: '+hmText(min)+' · '+I.list.length+' ca · '+days.length+' ngày','Tổng tiền lương: '+money(amt),'-----'];
-  days.forEach(d=>L.push(dmy(d.date)+': '+d.shifts.length+' ca, '+hmText(d.min)+', '+money(d.amount)));
+  const I=rangeInfo(),days=groupDays(I.list).reverse(),T=sumOf(I.list);
+  const L=['BÁO CÁO CHẤM CÔNG'+(S.name?' - '+S.name:''),'Kỳ: '+I.label,'Tổng giờ: '+hmText(T.m)+' · '+T.n+' ca · '+days.length+' ngày','Tiền giờ: '+money(T.h),'Thưởng: '+money(T.b),'TỔNG TIỀN (gồm thưởng): '+money(T.h+T.b),'-----'];
+  days.forEach(d=>L.push(dmy(d.date)+': '+d.shifts.map(s=>s.code).join(', ')+' · '+hmText(d.min)+' · '+money(d.hour)+(d.bonus?' + thưởng '+money(d.bonus):'')));
   return L.join('\n');
 }
 function csvText(list){
-  const rows=[['Ngày','Ca','Bắt đầu','Kết thúc','Số phút','Hệ số','Lương/giờ','Phụ cấp','Thành tiền','Ghi chú']];
-  groupDays(list).reverse().forEach(d=>d.shifts.forEach((s,i)=>rows.push([dmy(d.date),'Ca '+(i+1),hm(s.start),hm(s.end),s.min,s.f,s.rate,s.allow||0,s.amount,s.note||''])));
-  rows.push(['TỔNG','','','',list.reduce((a,s)=>a+s.min,0),'','','',list.reduce((a,s)=>a+s.amount,0),'']);
+  const rows=[['Ngày làm việc','Mã','Bắt đầu','Kết thúc','Số phút','Lương/giờ','Tiền giờ','Thưởng','Ghi chú']];
+  groupDays(list).reverse().forEach(d=>d.shifts.forEach(s=>rows.push([dmy(d.date),s.code,hm(s.start),hm(s.end),s.min,s.rate,s.hour,s.bonus||0,s.note||''])));
+  const T=sumOf(list);
+  rows.push(['TỔNG','','','',T.m,'',T.h,T.b,'']);
+  rows.push(['TỔNG TIỀN (GỒM THƯỞNG)',T.h+T.b]);
   return '﻿'+rows.map(r=>r.map(c=>'"'+String(c).replace(/"/g,'""')+'"').join(',')).join('\r\n');
 }
 async function exportCsv(){
@@ -368,35 +395,33 @@ document.addEventListener('click',e=>{
   const t=e.target.closest('[data-act]');if(!t)return;
   switch(t.dataset.act){
     case 'tab':setTab(t.dataset.t);break;
-    case 'start':S.timer={start:Date.now(),offset:0,f:multById(S.curMult).f,label:mLabel(multById(S.curMult))};save();renderTimer();break;
+    case 'start':{const c=codeById(S.cur);S.timer={start:Date.now(),offset:0,code:c.name,rate:c.rate,label:cLabel(c)};save();renderTimer();break}
     case 'test':if(S.timer){const dm=parseInt(t.dataset.m)||0;let off=(S.timer.offset||0)+dm*60000;const raw=Date.now()-S.timer.start;if(raw+off<0)off=-raw;S.timer.offset=off;save();tick()}break;
     case 'end':{
-      const sec=elapsed();
-      E={date:ymd(new Date(S.timer.start)),min:mins(sec),defMin:mins(sec),allow:0,note:S.note||'',endTs:Date.now()};
+      const T=S.timer;
+      E={min:mins(elapsed()),bonus:0,note:S.note||'',start:T.start,code:T.code,rate:T.rate};
       V={mode:'end'};show(endHTML());openSheet();updForm();break}
     case 'save-end':{
       if(!(E.min>0)){toast('Số phút phải lớn hơn 0');break}
-      const T=S.timer;
-      S.shifts.push({id:S.nextId++,date:E.date,start:T.start,end:E.min===E.defMin?E.endTs:T.start+E.min*60000,min:E.min,f:T.f,label:T.label,rate:S.rate,allow:E.allow,note:E.note.trim(),amount:calc(E.min,S.rate,T.f,E.allow)});
+      S.shifts.push({id:S.nextId++,start:E.start,end:E.start+E.min*60000,min:E.min,code:E.code,rate:E.rate,hour:hourPay(E.min,E.rate),bonus:E.bonus,note:E.note.trim()});
       S.timer=null;S.note='';save();closeSheet();renderTimer();renderLists();toast('Đã lưu ca làm việc');break}
     case 'manual':{
-      M={date:ymd(new Date()),fromMin:480,toMin:720,multId:S.curMult,allow:0,note:''};
+      M={date:ymd(new Date()),fromMin:480,toMin:720,codeId:S.cur,bonus:0,note:''};
       V={mode:'manual'};show(manualHTML());openSheet();updForm();break}
     case 'save-manual':{
       const d=((M.toMin-M.fromMin)+1440)%1440;
       if(d<=0){toast('Giờ bắt đầu và kết thúc không được trùng nhau');break}
-      const m=multById(M.multId);
-      const start=new Date(M.date+'T'+pad(Math.floor(M.fromMin/60))+':'+pad(M.fromMin%60)+':00').getTime();
-      S.shifts.push({id:S.nextId++,date:M.date,start,end:start+d*60000,min:d,f:m.f,label:mLabel(m),rate:S.rate,allow:M.allow,note:M.note.trim(),amount:calc(d,S.rate,m.f,M.allow)});
+      const c=codeById(M.codeId),start=mStart();
+      S.shifts.push({id:S.nextId++,start,end:start+d*60000,min:d,code:c.name,rate:c.rate,hour:hourPay(d,c.rate),bonus:M.bonus,note:M.note.trim()});
       save();closeSheet();renderLists();toast('Đã thêm ca');break}
     case 'del':{const id=t.dataset.id;ask('Xóa ca làm việc này?',()=>{S.shifts=S.shifts.filter(s=>s.id!=id);save();renderLists();if(!$('#tab-report').hidden)renderReport()});break}
-    case 'delday':{const d=t.dataset.d,n=S.shifts.filter(s=>s.date===d).length;ask('Xóa toàn bộ '+n+' ca của ngày '+dmy(d)+'?',()=>{S.shifts=S.shifts.filter(s=>s.date!==d);save();renderLists();if(!$('#tab-report').hidden)renderReport()});break}
+    case 'delday':{const d=t.dataset.d,n=S.shifts.filter(s=>wdKey(s.start)===d).length;ask('Xóa toàn bộ '+n+' ca của ngày '+dmy(d)+'?',()=>{S.shifts=S.shifts.filter(s=>wdKey(s.start)!==d);save();renderLists();if(!$('#tab-report').hidden)renderReport()});break}
     case 'dlg-yes':{const f=pendingYes;dlgClose();if(f)f();break}
     case 'dlg-no':dlgClose();break;
     case 'close':closeSheet();renderLists();renderTimer();break;
     case 'settings':V={mode:'settings'};show(settingsHTML());openSheet();break;
-    case 'madd':S.mults.push({id:S.nextId++,name:'Hệ số mới',f:1});save();show(settingsHTML(),true);break;
-    case 'mdel':if(S.mults.length<=1){toast('Cần giữ lại ít nhất 1 hệ số');break}S.mults=S.mults.filter(m=>m.id!=t.dataset.id);if(!S.mults.some(m=>m.id==S.curMult))S.curMult=S.mults[0].id;save();show(settingsHTML(),true);break;
+    case 'cadd':S.codes.push({id:S.nextId++,name:'Mã mới',rate:170000});save();show(settingsHTML(),true);break;
+    case 'cdel':if(S.codes.length<=1){toast('Cần giữ lại ít nhất 1 mã');break}S.codes=S.codes.filter(c=>c.id!=t.dataset.id);if(!S.codes.some(c=>c.id==S.cur))S.cur=S.codes[0].id;save();show(settingsHTML(),true);break;
     case 'wipe':ask('Xóa toàn bộ ca làm việc và cài đặt? Không thể khôi phục.',()=>{S=def();save();closeSheet();renderTimer();renderLists();renderReport()},'Xóa hết');break;
     case 'range':R.range=t.dataset.r;renderReport();break;
     case 'csv':exportCsv();break;
@@ -411,28 +436,28 @@ document.addEventListener('input',e=>{
   const el=e.target,id=el.id;
   if(el.dataset&&el.dataset.bind){bind(el);return}
   if(id==='note'){S.note=el.value;save();return}
+  const num=()=>{el.value=el.value.replace(/\D/g,'');return parseInt(el.value)||0};
+  const tm=v=>{const p=(v||'0:0').split(':');return (parseInt(p[0])||0)*60+(parseInt(p[1])||0)};
   if(V.mode==='end'){
-    if(id==='e-min'){el.value=el.value.replace(/\D/g,'');E.min=parseInt(el.value)||0}
-    else if(id==='e-allow'){el.value=el.value.replace(/\D/g,'');E.allow=parseInt(el.value)||0}
+    if(id==='e-min')E.min=num();
+    else if(id==='e-bonus'){E.bonus=num()*1000;showB(E.bonus);return}
     else if(id==='e-note'){E.note=el.value;return}
-    else if(id==='e-date'){if(el.value)E.date=el.value;return}
     else return;
     updForm();
   }else if(V.mode==='manual'){
-    const tm=v=>{const p=(v||'0:0').split(':');return (parseInt(p[0])||0)*60+(parseInt(p[1])||0)};
     if(id==='m-from')M.fromMin=tm(el.value);
     else if(id==='m-to')M.toMin=tm(el.value);
-    else if(id==='m-allow'){el.value=el.value.replace(/\D/g,'');M.allow=parseInt(el.value)||0}
+    else if(id==='m-date'){if(el.value)M.date=el.value}
+    else if(id==='m-bonus'){M.bonus=num()*1000;showB(M.bonus);return}
     else if(id==='m-note'){M.note=el.value;return}
-    else if(id==='m-date'){if(el.value)M.date=el.value;return}
     else return;
     updForm();
   }
 });
 document.addEventListener('change',e=>{
   const id=e.target.id;
-  if(id==='mult'){S.curMult=+e.target.value;save()}
-  else if(id==='m-mult'&&V.mode==='manual'){M.multId=+e.target.value;updForm()}
+  if(id==='code'){S.cur=+e.target.value;save()}
+  else if(id==='m-code'&&V.mode==='manual'){M.codeId=+e.target.value;updForm()}
   else if(e.target.dataset&&e.target.dataset.bind)bind(e.target);
 });
 document.addEventListener('gesturestart',e=>e.preventDefault());
